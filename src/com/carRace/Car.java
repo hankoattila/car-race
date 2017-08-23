@@ -4,18 +4,19 @@ import java.util.Random;
 
 public class Car implements Racer {
     private static int speedLimit = 110;
+    private static boolean isRaining;
     private String name;
     private int distanceTraveled;
     private int normalSpeed;
+    Random rnd = new Random();
 
     static void setSpeedLimit(int limit){
         speedLimit = limit;
     }
 
     Car(String name){
-        Random speed = new Random();
         this.name= name;
-        this.normalSpeed = speed.nextInt(31) + 80;
+        this.normalSpeed = rnd.nextInt(31) + 80;
     }
 
     @Override
@@ -35,5 +36,10 @@ public class Car implements Racer {
         } else {
             distanceTraveled += normalSpeed;
         }
+    }
+
+    @Override
+    public void setIsRaining(boolean isRaining) {
+
     }
 }

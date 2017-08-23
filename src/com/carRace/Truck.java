@@ -20,4 +20,9 @@ public class Truck implements Racer {
     public void moveForAnHour() {
 
     }
+
+    @Override
+    public void setIsRaining(boolean isRaining) {
+
+    }
 }
