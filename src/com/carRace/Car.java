@@ -3,23 +3,19 @@ package com.carRace;
 import java.util.Random;
 
 public class Car implements Racer {
-    private int normalSpeed;
-    private int distanceTraveled;
+    private static int speedLimit = 110;
     private String name;
+    private int distanceTraveled;
+    private int normalSpeed;
+
+    static void setSpeedLimit(int limit){
+        speedLimit = limit;
+    }
 
     Car(String name){
         Random speed = new Random();
         this.name= name;
         this.normalSpeed = speed.nextInt(31) + 80;
-    }
-
-
-    static void setSpeedLimit(int Limit){
-
-    }
-
-    public void setIsRaining(boolean isRaining){
-
     }
 
     @Override
@@ -34,6 +30,10 @@ public class Car implements Racer {
 
     @Override
     public void moveForAnHour() {
-
+        if (speedLimit < normalSpeed){
+            distanceTraveled += speedLimit;
+        } else {
+            distanceTraveled += normalSpeed;
+        }
     }
 }
