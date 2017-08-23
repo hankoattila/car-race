@@ -2,14 +2,19 @@ package com.carRace;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class Main {
 
     static List<Racer> racers = new ArrayList<>();
+    static Random rnd = new Random();
 
     public static void main(String[] args) {
         createVehicles();
+        simulateRace();
+
+
 
     }
     private static void createVehicles(){
@@ -29,7 +34,19 @@ public class Main {
             racers.add(new Truck());
         }
     }
-    void simulateRace(){
+    private static void simulateRace(){
+        boolean isRaining;
+
+        for(int round = 0; round < 50; round++){
+            //create a random number and set the isRaining variable true if the number smaller then 30 so is raining
+            isRaining = rnd.nextInt(100)+ 1 <= 30;
+
+
+            for(Racer racer: racers){
+                racer.moveForAnHour();
+                racer.setIsRaining(isRaining);
+            }
+        }
 
     }
     void printResult(){
