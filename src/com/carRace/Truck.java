@@ -7,6 +7,7 @@ import java.util.Random;
 public class Truck implements Racer {
     private int speed = 100;
     private int distanceTraveled;
+    private int breakdownTurnLeft;
     private String name;
     private List<String> nameOfTrucks = new ArrayList<>();
     Random rnd = new Random();
@@ -16,10 +17,6 @@ public class Truck implements Racer {
             name = Integer.toString(rnd.nextInt(1001));
         } while (nameOfTrucks.contains(name));
         nameOfTrucks.add(name);
-    }
-
-    void breakdownTurnLeft(){
-
     }
 
     @Override
@@ -34,7 +31,15 @@ public class Truck implements Racer {
 
     @Override
     public void moveForAnHour() {
-
+        if(breakdownTurnLeft == 0){
+            if(rnd.nextInt(100)+1 <=5){
+                breakdownTurnLeft = 1;
+            } else {
+                distanceTraveled += speed;
+            }
+        } else {
+            breakdownTurnLeft--;
+        }
     }
 
     @Override
