@@ -40,6 +40,11 @@ public class Car implements Racer {
 
     @Override
     public void setIsRaining(boolean isRaining) {
+        if(isRaining){
 
+            setSpeedLimit(70);
+        } else {
+            setSpeedLimit(100);
+        }
     }
 }
