@@ -9,7 +9,7 @@ public class Truck implements Racer {
     private int distanceTraveled;
     private int breakdownTurnLeft;
     private String name;
-    private List<String> nameOfTrucks = new ArrayList<>();
+    static private List<String> nameOfTrucks = new ArrayList<>();
     Random rnd = new Random();
 
     Truck(){
