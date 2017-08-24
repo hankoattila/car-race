@@ -11,7 +11,7 @@ public class Motorcycle implements Racer {
     Random rnd = new Random();
 
     Motorcycle(){
-        name = "Motorcycle" + nameNumber;
+        name = "Motorcycle " + nameNumber;
         nameNumber++;
     }
     public void setIsRaining(boolean isRaining){
